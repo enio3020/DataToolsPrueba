@@ -5,11 +5,12 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
-
+import org.springframework.stereotype.Repository;
 
 import com.datatoolsPrueba.tecnica.entity.Empresa;
 import com.datatoolsPrueba.tecnica.entity.Vehiculo;
 
+@Repository
 public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
 
 	public Vehiculo findByVehiId(Long var);
@@ -37,5 +38,5 @@ public interface VehiculoRepository extends JpaRepository<Vehiculo, Long> {
 			+ "    INNER JOIN dtoo_empresa e ON v.empresa_id = e.empr_id "
 			+ "    ORDER BY v.vehi_placa ) "
 			+ "    WHERE cantidadConduVincu > 2 ", nativeQuery = true)
-	public List<Object> findBySql();
+	public List<?> findBySql();
 }

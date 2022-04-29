@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.datatoolsPrueba.tecnica.response.ConsultaSqlResponse;
 import com.datatoolsPrueba.tecnica.service.ConsultaSqlService;
 
 @RestController
@@ -18,7 +18,7 @@ public class ConsultaSqlController {
 	ConsultaSqlService consultaSqlService;
 	
 	@GetMapping(value = "/getSql")
-	public List<Object> getSql(){
+	public List<?> getSql(){
 		return consultaSqlService.getSql();
 	}
 }
